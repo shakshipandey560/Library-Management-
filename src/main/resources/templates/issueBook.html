@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>..:: LIBRARIA ::..</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
+
+    <!-- jQuery Latest Version 1.x -->
+    <script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+    <!-- jQuery Easing -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#navBtn").click(function() {
+                $(".main").toggleClass('animate');
+            });
+            $('#navBar').load("/navBar");
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="main">
+
+    <div id="navBar"></div>
+    <div class="content">
+
+        <div>
+            <h2 class="mb-4">Issue Books</h2>
+            <div class="container-fluid">
+                <form id="insertBook" action = "javascript: issueBookDetails();" method= "post">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="studentId">Student Id</label>
+                            <input type="text" class="form-control" id="studentId" name="studentId" value="" onchange="getStudentName()" placeholder=" Student ID" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" class="form-control" id="studentName" name="studentName" placeholder=" Student Name" value="" required readonly >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="bookId">Book Id</label>
+                            <input type="text" class="form-control" id="bookId" name="bookId" value="" onchange="getBookName()" placeholder="Book Id" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="bookName">Book Name</label>
+                            <input type="text" class="form-control" id="bookName" name="bookName"  placeholder=" Book Name" value="" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="issueDate">Issue Date</label>
+                            <input type="date" class="form-control" id="issueDate" name="issueDate" value="issue" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" class="form-control" id="dueDate" name="dueDate" value="return" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" >Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/book.js"></script>
+
+</body>
+</html>

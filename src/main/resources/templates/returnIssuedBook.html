@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>..:: LIBRARIA ::..</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
+
+    <!-- jQuery Latest Version 1.x -->
+    <script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+    <!-- jQuery Easing -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#navBtn").click(function() {
+                $(".main").toggleClass('animate');
+            });
+            $('#navBar').load("/navBar");
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="main">
+
+    <div id="navBar"></div>
+    <div class="content">
+
+        <div>
+            <h2 class="mb-4">Return Books</h2>
+            <div class="container-fluid">
+                <form id="returnBook" action = "javascript: returnIssueBook();" th:object="${returnBook}" method= "post">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="issueId">Issue Id</label>
+                            <input type="text" class="form-control" id="issueId" name="issueId" th:field="*{issueBookId}" placeholder="Issue Id" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="price">Fine</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">₹</span>
+                                </div>
+                                <input type="number" class="form-control" id="price" name="price" th:field="*{fine}"  required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="studentId">Student Id</label>
+                            <input type="text" class="form-control" id="studentId" name="studentId" th:field="*{studentId}" placeholder=" Student ID" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="bookId">Book Id</label>
+                            <input type="text" class="form-control" id="bookId" name="bookId" th:field="*{bookId}" placeholder="Book Id" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="issueDate">Issue Date</label>
+                            <input type="date" class="form-control" id="issueDate" name="issueDate" th:field="*{issueDate}" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" class="form-control" id="dueDate" name="dueDate" th:field="*{dueDate}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" >Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/book.js"></script>
+
+</body>
+</html>
